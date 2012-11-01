@@ -1,14 +1,20 @@
 <html>
 <head>
-	<title>Index</title>
+	<title>SoundGap Box</title>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/docs.css">
 </head>
-<body>
-	<ul>
-		<li><a href="_1_sound.php">Sound</a></li>
-		<li><a href="_2_piano.php">Piano</a></li>
-		<li><a href="_3_chord.php">Chord</a></li>
-		<li><a href="beatbox.php" >Beat Box</a></li>
-		<li><a href="_4_intersect.php" >Chord Notes Intersection Graph</a></li>
-	</ul>
+<body class='container'>
+<div class='row'>
+	<div class='span3 bs-docs-sidebar'>
+		<ul class='nav nav-list bs-docs-sidenav affix'>
+			<li><a href="/docs">Documentation</a></li>
+			<li><a href="/p1_test_drive/v0.php">Version 0</a></li>
+			<li><a href="/p2_soundgap_box/box-prototype.php">Box Prototype</a></li>
+			<li><a href="/p2_soundgap_box/midi-function.php">MIDI function</a></li>
+		</ul>
+	</div>
+</div>
 </body>
 </html>

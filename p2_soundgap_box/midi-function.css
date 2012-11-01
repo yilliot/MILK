@@ -1,0 +1,25 @@
+
+/*layout*/
+div.track{width:905px;}
+div.track div.track-header {display:block;float:left;width:200px;height:32px;}
+div.track div.track-body   {display:block;float:left;width:700px;height:32px;}
+div.track div.track-header div.edit{display:none;padding:5px 2px;float:left;}
+div.track div.track-header span.icon{float:left;margin:5px;}
+div.track div.track-header span.label{float:left;margin:7px 2px;}
+div.track div.track-header div.identity{display:block;float:left;}
+div.track div#slots-holder{display:block;float:left;}
+div.track div#slots-holder span.slot{display:block;float:left;width:30px;height:30px;text-align:center;}
+div.track button{float:left;}
+/*border*/
+div.track{border:0px solid #CCC;}
+div.track div.track-header {background-color:#EEE;}
+div.track div#slots-holder span.slot{border-top:1px solid #AAA;border-bottom:1px solid #AAA;}
+div.track div#slots-holder span.slot{border-right:1px solid #AAA;}
+/*colors*/
+div.track div#slots-holder span.slot{background-color:#DDD;cursor:pointer;}
+
+
+/*modal click expand*/
+div.modal{position:relative;left:auto;top:auto;margin:20px;width:280px;}
+.expandable{clear:both;overflow:hidden;}
+a.click-expand-next{cursor:pointer;}
