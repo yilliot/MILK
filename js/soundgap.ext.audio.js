@@ -12,27 +12,43 @@ var SoundGap = (function( SoundGap , $ , undefined ){
 			'sf'        : 0, // 0:C
 			'mi'        : 0 // 0:Major
 		},
-		'_type_rest' : function () {
+		'generate' : function(type,root,chord,register,voice){
+
+			var base = parseInt(register*12) + parseInt(root) - 1;
+			var note = MX.Note.byBase(base);
+			var chord_notes = MX.Chord.toNotes(note,chord);
+			var pattern = [];
+			switch(type){
+				case '0' : pattern = SoundGap.generator._type_rest(chord_notes); break;
+				case '1' : pattern = SoundGap.generator._type_chord_APPP(chord_notes); break;
+				case '2' : pattern = SoundGap.generator._type_chord_AAAA_root(chord_notes); break;
+				case '3' : pattern = SoundGap.generator._type_chord_APAA(chord_notes); break;
+				case '11' : pattern = SoundGap.generator._type_arpegios_IIII(chord_notes); break;
+				case '12' : pattern = SoundGap.generator._type_arpegios_ACPA(chord_notes); break;
+				case '13' : pattern = SoundGap.generator._type_arpegios_HCBI(chord_notes); break;
+				case '999' : pattern = SoundGap.generator._type_rest(); break;
+			}
+		},
+		'_type_rest' : function (notes) {
 			return [];
 		},
-		'_type_chord_1' : function(){
-			var notes = new SoundGap.note();
-			
+		'_type_chord_APPP' : function(notes){
+			console.log( notes );
 			return [];
 		},
-		'_type_root_chord' : function(){
+		'_type_chord_AAAA_root' : function(notes){
 
 		},
-		'_type_chord_134' : function(){
+		'_type_chord_APAA' : function(notes){
 
 		},
-		'_type_arpegios_8' : function(){
+		'_type_arpegios_IIII' : function(notes){
 
 		},
-		'_type_arpegios_332' : function(){
+		'_type_arpegios_ACPA' : function(notes){
 
 		},
-		'_type_arpegios_333322' : function(){
+		'_type_arpegios_HCBI' : function(notes){
 
 		}
 	};
@@ -127,6 +143,11 @@ var SoundGap = (function( SoundGap , $ , undefined ){
 
 	// notes inside bar, instant created by controller
 	SoundGap.note = function() {
+		// PPQN 
+		// 384 => whole note
+		// 192 => half note
+		// 96  => quater note
+		// 48  => 8th note
 		this.config = {
 			'notename' : '20',
 			'start'    : 0,  // 96 PPQN

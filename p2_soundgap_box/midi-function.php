@@ -75,6 +75,17 @@
 			});
 		});
 
+		$('#save-slot-section').click(function(){
+			var target = $(this).closest('.modal');
+			var chord_root = target.find('select#chord-root').val();
+			var chord_type = target.find('select#chord-type').val();
+			var generator_type = target.find('select#generator-type').val();
+			var register = target.find('input#register').val();
+			var voice = target.find('select#voice').val();
+			SoundGap.generator.generate(generator_type,chord_root,chord_type,register,voice);
+			//target.hide('slide');
+		});
+
 		// general button
 		$('.section-close-button').click(function(){
 			$(this).closest('.modal').hide('slide');
@@ -302,14 +313,14 @@
 			<div class="control-group">
 				<label>Companion Type</label>
 				<div class="controls">
-					<select id='voice' class='span3'>
+					<select id='generator-type' class='span3'>
 						<option value='0'  > Rest </option>
-						<option value='1'  > Chord </option>
-						<option value='2'  > Chord Root + Chord </option>
-						<option value='3'  > Chord 1st 3rd 4th </option>
-						<option value='11' > Arpegios 8th </option>
-						<option value='12' > Arpegios 8th 3+3+2 </option>
-						<option value='13' > Arpegios 16th 3+3+3+3+2+2 </option>
+						<option value='1'  > Chord APPP 1st </option>
+						<option value='2'  > Chord A(Root)AAA 4th </option>
+						<option value='3'  > Chord APAA 4th </option>
+						<option value='11' > Arpegios CCCC 8th </option>
+						<option value='12' > Arpegios ACPA 8th </option>
+						<option value='13' > Arpegios HCBI 16th </option>
 						<option value='999'> Custom </option>
 					</select>
 				</div>
@@ -319,7 +330,7 @@
 			<div class="control-group">
 				<label>Root Register</label>
 				<div class="controls">
-					<input type='number' value='3' class='span1' />
+					<input id='register' type='number' value='3' class='span1' />
 				</div>
 			</div>
 			<a class='click-expand-next'>... show more ...</a>
@@ -339,7 +350,7 @@
 		</div>
 		<div class="modal-footer">
 			<button id='hide-slot-section' class="btn section-close-button" >Close</button>
-			<button id='create-slot-section' class="btn btn-primary">Save Setting</button>
+			<button id='save-slot-section' class="btn btn-primary">Save Setting</button>
 		</div>
 	</div>
 </body>
